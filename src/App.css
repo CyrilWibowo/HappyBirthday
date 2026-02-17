@@ -1,0 +1,37 @@
+#root {
+  min-height: 100vh;
+}
+
+.cutscene-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  transition: opacity 0.4s ease-out;
+}
+
+.cutscene-wrapper.fade-out {
+  opacity: 0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.app.hidden {
+  opacity: 0;
+}
+
+.app.fade-in {
+  opacity: 1;
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  color: #5a4a42;
+}

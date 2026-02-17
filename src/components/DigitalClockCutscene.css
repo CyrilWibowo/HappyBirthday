@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+
+.cutscene-container {
+  --time-digit-height: 3.5rem;
+  --time-font-size: 2.8rem;
+  --time-digit-width: 2rem;
+  --date-digit-height: 1.5rem;
+  --date-font-size: 1.2rem;
+  --date-digit-width: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-20,
+.background-21 {
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 45vw;
+  font-weight: 700;
+  color: #f5e4da;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.background-21 {
+  animation: gentle-glow 3s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(255, 200, 180, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 60px rgba(255, 200, 180, 0.5);
+  }
+}
+
+.cutscene-container > *:not(.background-20):not(.background-21) {
+  z-index: 1;
+}
+
+.pusheen-sleep,
+.pusheen-birthday {
+  width: 150px;
+  height: auto;
+}
+
+.birthday-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #5a4a42;
+  max-width: 400px;
+  text-align: center;
+}
+
+.tap-prompt {
+  position: absolute;
+  bottom: 3rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  color: #5a4a42;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-display,
+.time-display {
+  display: flex;
+  align-items: center;
+}
+
+.digit-group {
+  display: flex;
+}
+
+.digit-scroll {
+  transition: transform 0.3s ease-out;
+}
+
+.time-display .digit-container {
+  width: var(--time-digit-width);
+  height: var(--time-digit-height);
+  overflow: hidden;
+}
+
+.time-display .digit {
+  width: 100%;
+  height: var(--time-digit-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--time-font-size);
+  font-weight: 700;
+  color: #5a4a42;
+}
+
+.time-display .colon {
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--time-font-size);
+  font-weight: 700;
+  color: #5a4a42;
+}
+
+.date-display .digit-container {
+  width: var(--date-digit-width);
+  height: var(--date-digit-height);
+  overflow: hidden;
+}
+
+.date-display .digit {
+  width: 100%;
+  height: var(--date-digit-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--date-font-size);
+  font-weight: 700;
+  color: #5a4a42;
+}
+
+.date-display .separator {
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--date-font-size);
+  font-weight: 700;
+  color: #5a4a42;
+}
+
+@media (max-width: 480px) {
+  .cutscene-container {
+    --time-digit-height: 2.5rem;
+    --time-font-size: 2rem;
+    --time-digit-width: 1.5rem;
+    --date-digit-height: 1.2rem;
+    --date-font-size: 1rem;
+    --date-digit-width: 0.8rem;
+  }
+
+  .background-20,
+  .background-21 {
+    font-size: 80vw;
+  }
+
+  .pusheen-sleep {
+    width: 120px;
+  }
+}
+
+/* Page Wrapper for scrollable content */
+.page-wrapper {
+  scroll-behavior: smooth;
+}
+
+/* Message Section Styles */
+.message-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff9f5 0%, #ffeee5 100%);
+  padding: 2rem;
+  position: relative;
+}
+
+.message-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.message-greeting {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5a4a42;
+  margin-bottom: 1rem;
+}
+
+.message-body-wrapper {
+  position: relative;
+}
+
+.decorations-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0rem;
+}
+
+.decoration-gif {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.decoration-gif:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.decoration-gif.small {
+  width: 85px;
+}
+
+.message-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #5a4a42;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.message-signature {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5a4a42;
+  text-align: right;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.signature-note {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.message-tap-prompt {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  color: #5a4a42;
+  text-align: right;
+  margin-top: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.inline-gif {
+  display: inline;
+  height: 2em;
+  width: auto;
+  vertical-align: middle;
+  margin: -0.5em 0.1em;
+}
+
+.colorful-text {
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Thanks Section */
+.thanks-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff9f5 0%, #ffeee5 100%);
+  padding: 2rem;
+}
+
+.thanks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.thanks-line {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5a4a42;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.thanks-line.visible {
+  opacity: 1;
+}
+
+.indebted-text {
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.indebted-text.visible {
+  opacity: 1;
+}
+
+.thanks-signature {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5a4a42;
+  font-style: italic;
+  text-align: right;
+  margin-top: 2rem;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.thanks-signature.visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .background-20,
+  .background-21 {
+    font-size: 80vw;
+  }
+
+  .message-section {
+    padding: 1rem;
+  }
+
+  .message-container {
+    padding: 1rem;
+  }
+
+  .message-greeting {
+    font-size: 1.2rem;
+  }
+
+  .message-text {
+    font-size: 1rem;
+  }
+
+  .inline-gif {
+    height: 1.9em;
+  }
+
+  .decoration-gif {
+    width: 105px;
+  }
+
+  .decoration-gif.small {
+    width: 75px;
+  }
+
+  .thanks-section {
+    padding: 3rem 1rem;
+  }
+
+  .thanks-line {
+    font-size: 1.1rem;
+  }
+
+  .thanks-signature {
+    font-size: 1rem;
+  }
+}
